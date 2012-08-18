@@ -63,6 +63,9 @@ the label "ruby", while "-label:ruby" REMOVES the label "ruby".
 [deleted]       message is marked as deleted. (Same as "label:deleted".)
 [starred]       message is starred. (Same as "label:starred".)
 
+[replyto:regexp] regexp matches the "References:" field (regexp matches one reference)
+                 Useful when using maillist and want to be notified about messages that are answeres to you messages.
+                 The regexp should be hostname of your box.
 
 == Available actions
 

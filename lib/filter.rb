@@ -102,6 +102,7 @@ module SupFilters
       prefix, condition, param = *parts
 
       (case condition
+       when "replyto"; ReplytoCondition
        when "match";   MatchCondition
        when "from";    FromCondition
        when "to";      ToCondition
@@ -189,6 +190,15 @@ module SupFilters
       @param_re =~ message.subj
     end
   end
+
+  class ReplytoCondition < Condition
+    def test( message )
+      message.refs.each do |s|
+        if @param_re =~ s
+          return true
+        end
+      end
+      return false
 
   ## Not available because I can't figure out how to access the
   ## message body. :\
